@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBER STRIKE TEAM</title>
+    <style>
+        /* --- CSS কোড শুরু (সংশোধিত) --- */
+        body {
+            background-color: #000000;
+            color: #00ff41;
+            font-family: 'Consolas', 'Courier New', monospace;
+            /* Flexbox ব্যবহার করে কন্টেন্ট মাঝ বরাবর (উল্লম্ব ও অনুভূমিক) */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* অনুভূমিকভাবে মাঝখানে আনবে */
+            justify-content: center; /* উল্লম্বভাবে মাঝখানে আনবে */
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            overflow: hidden; 
+            position: relative;
+        }
+
+        /* ম্যাট্রিক্স ইফেক্টের জন্য ক্যানভাস */
+        #matrixCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; 
+            opacity: 0.7; 
+        }
+
+        .content-wrapper {
+            z-index: 1; 
+            text-align: center;
+        }
+
+        /* প্রধান টাইটেল */
+        .header {
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px #00ff41, 0 0 30px #00ff41;
+            letter-spacing: 7px;
+            color: #33ff66;
+            width: 100%; /* সম্পূর্ণ উইডথ জুড়ে থাকুক */
+            text-align: center; /* টেক্সট মাঝখানে থাকুক */
+        }
+
+        /* লোগো ও লোগো স্টাইল */
+        .logo-area {
+            margin-bottom: 20px;
+            /* লোগো ইমেজটিকে মাঝখানে আনার জন্য */
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        .logo-image {
+            width: 250px; /* লোগোর আকার */
+            height: 250px; /* গোল করার জন্য width-এর সমান হতে হবে */
+            border: none; 
+            /* বৃত্তাকার করার জন্য এই লাইনটি আবশ্যক */
+            border-radius: 50%; 
+            /* ইমেজ যদি পুরোপুরি বর্গাকার না হয়, তবুও গোল দেখানোর জন্য */
+            object-fit: cover; 
+            
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6), 0 0 50px rgba(92, 0, 255, 0.4); 
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); opacity: 0.9; }
+            to { transform: scale(1.03); opacity: 1; }
+        }
+        
+        /* প্রোফাইল বক্স */
+        .profile-box {
+            border: 4px solid #00ff41;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 0 30px #00ff41, inset 0 0 15px #00ff41;
+            max-width: 450px;
+            margin-bottom: 30px;
+            /* এটি যেহেতু body এর flex এর মধ্যে আছে, তাই এটিও মাঝখানে থাকবে */
+        }
+
+        .name {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #33ff66;
+            text-shadow: 0 0 8px #33ff66;
+        }
+
+        .role {
+            font-size: 1.1em;
+            color: #00ffff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 5px #00ffff;
+        }
+
+        .description {
+            font-size: 1em;
+            margin-top: 15px;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+
+        /* টেলিগ্রাম বাটন */
+        .links a {
+            color: #000000;
+            background-color: #00ff41;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 12px 30px;
+            display: inline-block;
+            margin-top: 25px;
+            border: 2px solid #00ff41;
+            box-shadow: 0 0 15px #00ff41;
+            transition: all 0.3s ease;
+        }
+
+        .links a:hover {
+            background-color: #00ffff;
+            box-shadow: 0 0 20px #00ffff;
+            color: #000000;
+        }
+
+        .footer-text {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #ff0000;
+            text-shadow: 0 0 5px #ff0000;
+            text-align: center;
+            line-height: 1.7;
+        }
+        /* --- CSS কোড শেষ --- */
+    </style>
+</head>
+<body>
+
+    <canvas id="matrixCanvas"></canvas>
+
+    <div class="content-wrapper">
+        <div class="header">
+            CYBER STRIKE TEAM
+        </div>
+
+        <div class="logo-area">
+            <img src="logo.png" alt="HACK Logo" class="logo-image">
+        </div>
+
+        <div class="profile-box">
+            <div class="name">
+                NABIL AKON1
+            </div>
+            
+            <div class="role">
+                // System Breaker & Digital Nomad //
+            </div>
+
+            <p class="description">
+                A relentless force in the digital realm. We don't just find vulnerabilities—we own the system. If you seek the void, connect with the shadow.
+            </p>
+
+            <div class="links">
+                <a href="https://t.me/freeappapk12" target="_blank">CHAT WITH US ON TELEGRAM</a>
+            </div>
+        </div>
+
+        <div class="footer-text">
+            | NO MERCY | NO ESCAPE | WE ARE LEGION |<br>
+            #SystemHacked • Dominated by the Cyber Strike Team of Bangladesh<br>
+            **GREETZ TO:** The Shadow | Error404 | Black-Hat
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+        // প্রতিটি কলামে ড্রপ শুরু করার জন্য একটি y-পজিশন অ্যারে তৈরি করা হলো 
+        let y_pos = Array(Math.floor(width / 10)).fill(0); 
+
+        function matrix() {
+            // পূর্বের ক্যারেক্টারগুলো হালকাভাবে মুছে ফেলার জন্য
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, width, height);
+            
+            ctx.fillStyle = '#00ff41'; // সবুজ কালার
+            ctx.font = '10pt Consolas'; 
+
+            y_pos.forEach((y, index) => {
+                // র্যান্ডমলি 0 অথবা 1 নির্বাচন করা হচ্ছে
+                const text = Math.random() < 0.5 ? '0' : '1'; 
+                
+                // ক্যারেক্টারটি ড্র করুন (প্রতিটি ক্যারেক্টারের আকার 10pt)
+                ctx.fillText(text, index * 10, y);
+
+                // যদি ক্যারেক্টার স্ক্রিনের নিচে চলে যায় বা র্যান্ডমলি একটি ড্রপ শেষ হয়
+                if (y > height && Math.random() > 0.975) {
+                    y_pos[index] = 0; // উপরে থেকে আবার শুরু
+                } else {
+                    y_pos[index] = y + 10; // 10 পিক্সেল নিচে নামান
+                }
+            });
+        }
+
+        // ব্রাউজারের আকার পরিবর্তন হলে ক্যানভাসের আকার আপডেট করুন
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            y_pos = Array(Math.floor(width / 10)).fill(0); 
+        });
+
+        // অ্যানিমেশন লুপ প্রতি 50 মিলিসেকেন্ডে আপডেট
+        setInterval(matrix, 50); 
+    </script>
+</body>
+</html>
